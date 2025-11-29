@@ -71,9 +71,11 @@ C:\Users\student\.conda\envs\mlagents\python.exe -c "import torch; print('CUDA a
 
 ### Spustenie tréningu v anaconda prompt
 ```powershell
+
+conda activate mlagents
+D:
 cd D:\uniza_ai_jam\AI_Jam_VersionControlled_Unity\AI-JAM-2025-master\Assets
-C:\Users\student\.conda\envs\mlagents\Scripts\mlagents-learn.exe konfig.yaml --run-id=NazovModelu --force
-```
+C:\Users\student\.conda\envs\mlagents\Scripts\mlagents-learn.exe konfig.yaml --run-id=NazovModelu --force```
 > Použi `--resume` namiesto `--force` ak chceš pokračovať v predošlom tréningu.
 
 ---
