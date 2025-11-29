@@ -1,0 +1,5 @@
+# Pin PyTorch CUDA 11.7 wheels
+# Use with: pip install -c constraints-cu117.txt ...
+# Note: These are pip wheel tags, not conda packages.
+torch==2.0.1+cu117
+torchvision==0.15.2+cu117
