@@ -129,7 +129,9 @@ class CategoricalDistInstance(DiscreteDistInstance):
     def pdf(self, value):
         # This function is equivalent to torch.diag(self.probs.T[value.flatten().long()]),
         # but torch.diag is not supported by ONNX export.
-        idx = torch.arange(start=0, end=len(value)).unsqueeze(-1)
+        # Ensure value is on the same device as probs
+        value = value.to(self.probs.device)
+        idx = torch.arange(start=0, end=len(value), device=self.probs.device).unsqueeze(-1)
         return torch.gather(
             self.probs.permute(1, 0)[value.flatten().long()], -1, idx
         ).squeeze(-1)
