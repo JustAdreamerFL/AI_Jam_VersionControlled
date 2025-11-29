@@ -69,10 +69,7 @@ Kontrola GPU:
 C:\Users\student\.conda\envs\mlagents\python.exe -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'N/A')"
 ```
 
----
-
-## Spustenie tréningu
-
+### Spustenie tréningu v anaconda prompt
 ```powershell
 cd D:\uniza_ai_jam\AI_Jam_VersionControlled_Unity\AI-JAM-2025-master\Assets
 C:\Users\student\.conda\envs\mlagents\Scripts\mlagents-learn.exe konfig.yaml --run-id=NazovModelu --force
