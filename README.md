@@ -70,7 +70,7 @@ torchvision             0.15.2+cu117
 $env:PIP_CACHE_DIR = "C:\Users\student\.cache\pip"
 ```
 
-### Spustenie tréningu
+### Spustenie tréningu v anaconda prompt
 ```powershell
 
 # aktivuj conda
