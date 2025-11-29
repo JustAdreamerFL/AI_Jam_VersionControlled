@@ -22,6 +22,8 @@ class Normalizer(nn.Module):
 
     def update(self, vector_input: torch.Tensor) -> None:
         with torch.no_grad():
+            # Ensure input is on the same device as the running buffers
+            vector_input = vector_input.to(self.running_mean.device)
             steps_increment = vector_input.size()[0]
             total_new_steps = self.normalization_steps + steps_increment
 

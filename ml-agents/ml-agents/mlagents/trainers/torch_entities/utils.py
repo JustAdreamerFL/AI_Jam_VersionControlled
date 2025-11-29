@@ -1,5 +1,5 @@
 from typing import List, Optional, Tuple, Dict
-from mlagents.torch_utils import torch, nn
+from mlagents.torch_utils import torch, nn, default_device
 from mlagents.trainers.torch_entities.layers import LinearEncoder, Initialization
 import numpy as np
 
@@ -233,7 +233,7 @@ class ModelUtils:
         Converts a list of numpy arrays into a tensor. MUCH faster than
         calling as_tensor on the list directly.
         """
-        return torch.as_tensor(np.asanyarray(ndarray_list), dtype=dtype)
+        return torch.as_tensor(np.asanyarray(ndarray_list), dtype=dtype).to(default_device())
 
     @staticmethod
     def list_to_tensor_list(
@@ -243,8 +243,9 @@ class ModelUtils:
         Converts a list of numpy arrays into a list of tensors. MUCH faster than
         calling as_tensor on the list directly.
         """
+        device = default_device()
         return [
-            torch.as_tensor(np.asanyarray(_arr), dtype=dtype) for _arr in ndarray_list
+            torch.as_tensor(np.asanyarray(_arr), dtype=dtype).to(device) for _arr in ndarray_list
         ]
 
     @staticmethod
